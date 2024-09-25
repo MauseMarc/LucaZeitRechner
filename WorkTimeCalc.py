@@ -41,3 +41,6 @@ while running:
     que= input("ERGH")
     if que.lower()=="y":
         running=False
+
+
+print("I commited changes to the federal law of switzerland")
