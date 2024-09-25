@@ -44,3 +44,4 @@ while running:
 
 
 print("I commited changes to the federal law of switzerland")
+print("Hello world")
