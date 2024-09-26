@@ -25,15 +25,18 @@ class App:
         self.mittag_end = tk.Text(width=10, height=1)
         self.mittag_end.pack(pady=10)
 
-        self.button = tk.Button(root, text="print", command=self.printt)
+        self.button = tk.Button(root, text="print", command=self.calc_time)
         self.button.pack(pady=10)
 
         self.lbl = tk.Label(text="")
         self.lbl.pack(pady=10)
-    
-    def printt(self):
-        input_text = self.starttime.get(1.0, "end-1c")
-        self.lbl.config(text=input_text)
+
+    def calc_time(self):
+        start_time = self.starttime.get(1.0, "end-1c")
+        mittag_start = self.mittag_start.get(1.0, "end-1c")
+        mittag_end = self.mittag_end.get(1.0, "end-1c")
+        min_max_time = minMax(start_time, mittag_start, mittag_end)
+        min_time = 
 
 if __name__ == "__main__":
     root = tk.Tk()
