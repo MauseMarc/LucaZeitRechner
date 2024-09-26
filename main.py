@@ -1,6 +1,7 @@
 from TimeCalcModule import *
 from WorkTimeCalc import *
 import tkinter as tk
+from tkinter import messagebox
 
 class App:
     def __init__(self, root):
@@ -25,15 +26,32 @@ class App:
         self.mittag_end = tk.Text(width=10, height=1)
         self.mittag_end.pack(pady=10)
 
-        self.button = tk.Button(root, text="print", command=self.printt)
+        self.button = tk.Button(root, text="print", command=self.calc_time)
         self.button.pack(pady=10)
 
-        self.lbl = tk.Label(text="")
-        self.lbl.pack(pady=10)
-    
-    def printt(self):
-        input_text = self.starttime.get(1.0, "end-1c")
-        self.lbl.config(text=input_text)
+        self.lbl1 = tk.Label(text="")
+        self.lbl1.pack(pady=10)
+
+        self.lbl2 = tk.Label(text="")
+        self.lbl2.pack(pady=10)
+
+    def calc_time(self):
+        start_time = self.starttime.get(1.0, "end-1c")
+        mittag_start = self.mittag_start.get(1.0, "end-1c")
+        mittag_end = self.mittag_end.get(1.0, "end-1c")
+        min_max_time = minMax(start_time, mittag_start, mittag_end)
+        if not min_max_time:
+            messagebox.showinfo(title="Fehler", text="Zeiteingabe ungültig")
+        else:
+            print(min_max_time)
+            min_time_t = min_max_time[0]
+            max_time_t = min_max_time[1]
+            min_time = ':'.join(map(str, min_time_t))
+            max_time = ':'.join(map(str, max_time_t))
+
+            self.lbl1.configure(text=f"Minimale Zeit: {min_time}")
+            self.lbl2.configure(text=f"Maximale Zeit: {max_time}")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
