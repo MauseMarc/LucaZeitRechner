@@ -21,5 +21,10 @@ def validateTime(time):
     minuteTime=valTime[0]*60+valTime[1]
     return valTime,minuteTime
 
+def convertMinutes(totalMinutes):
+    overspill = totalMinutes % 60
+    hour = (totalMinutes - overspill) / 60
+    return int(hour),overspill
 
-print(validateTime("1758"))
+
+# print(validateTime("758"))
