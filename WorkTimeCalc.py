@@ -21,7 +21,7 @@ if __name__ == "__main__":
         maxwork = 540
 
         morning_time = calc_time_delta(start_min, mittag_start_min)
-
+        
         minwork_n = minwork - morning_time
         maxwork_n = maxwork - morning_time
 
