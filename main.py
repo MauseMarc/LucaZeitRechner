@@ -2,6 +2,7 @@ from TimeCalcModule import *
 from WorkTimeCalc import *
 import tkinter as tk
 from tkinter import messagebox
+import datetime
 
 class App:
     def __init__(self, root):
@@ -45,8 +46,8 @@ class App:
         else:
             min_time_t = min_max_time[0]
             max_time_t = min_max_time[1]
-            min_time = ':'.join(map(str, min_time_t))
-            max_time = ':'.join(map(str, max_time_t))
+            min_time = f"{min_time_t[0]:02}:{min_time_t[1]:02}"
+            max_time = f"{max_time_t[0]:02}:{max_time_t[1]:02}"
 
             self.lbl1.configure(text=f"Minimale Zeit: {min_time}")
             self.lbl2.configure(text=f"Maximale Zeit: {max_time}")
