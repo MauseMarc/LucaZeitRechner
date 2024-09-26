@@ -8,19 +8,15 @@ def validateTime(time):
             valTime.append(time[-2:])
     else:
         return False
-
     if valTime[0].isdigit() and valTime[1].isdigit():
         valTime[0]=int(valTime[0])
         valTime[1]=int(valTime[1])
     else:
         return False
-    if valTime[0] >23:
-        return False
-    if valTime[1] >59:
+    if valTime[0] >23 or valTime[1] >59:
         return False
     minuteTime=valTime[0]*60+valTime[1]
-    return valTime,minuteTime
-
+    return minuteTime
 
 def convertMinutes(totalMinutes):
     overspill = totalMinutes % 60

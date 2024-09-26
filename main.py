@@ -38,7 +38,6 @@ class App:
         min_max_time = minMax(start_time, mittag_start, mittag_end)
         min_time = 
 
-
 if __name__ == "__main__":
     root = tk.Tk()
     app = App(root)
