@@ -1,4 +1,4 @@
-# ArbeitszeitBetrug
+# Luca Code
 Arbeitszeit Calculator
 Input Ankunftzeit, Mittagspause start und Mittagspause ende
 
