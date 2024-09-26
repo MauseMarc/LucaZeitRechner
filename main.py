@@ -43,7 +43,6 @@ class App:
         if not min_max_time:
             messagebox.showinfo(title="Fehler", text="Zeiteingabe ungültig")
         else:
-            print(min_max_time)
             min_time_t = min_max_time[0]
             max_time_t = min_max_time[1]
             min_time = ':'.join(map(str, min_time_t))
