@@ -1,50 +1,34 @@
-import os
-os.system("")
+import datetime
+import time
+from TimeCalcModule import *
 
+def input_time():
+    start_time = input("Start Time: ")
+    mittag_start = input("Mittag Start: ")
+    mittag_ende = input("Mittag Ende: ")
+    return start_time, mittag_start, mittag_ende
 
-def minToHour(minutes):
-    calc = minutes % 60
-    minut = calc
-    hour = int((minutes - calc) / 60)
-    return hour,"Uhr",minut,"Minuten"
+s, m, n = input_time()
 
+start, start_min = validateTime(s)
+mittag_start, mittag_start_min = validateTime(m)
+mittag_ende, mittag_ende_min = validateTime(n)
 
-running=True
-while running:
-    start=input("Start Time: ")
-    mittag=input("Mittagpause Start: ")
-    nachmittag=input("Mittagpause Ende: ")
+def calc_time_delta(start, ende):
+    return ende - start
 
-    minwork=(8*60)+12
+minwork = 492
+maxwork = 540
 
-    s1=int(start[:2])*60
-    s2=(int(start[2:]))
+morning_time = calc_time_delta(start_min, mittag_start_min)
 
-    m1=int(mittag[:2])*60
-    m2=(int(mittag[2:]))
+minwork_n = minwork - morning_time
+maxwork_n = maxwork - morning_time
 
-    n1=int(nachmittag[:2])*60
-    n2=(int(nachmittag[2:]))
+minwork_min = minwork_n + mittag_ende_min
+maxwork_min = maxwork_n + mittag_ende_min
 
-    s=s1+s2
-    m=m1+m2
-    n=n1+n2
+minwork_h = convertMinutes(minwork_min)
+maxwork_h = convertMinutes(maxwork_min)
 
-    morning=m-s
-    difference=minwork - morning
-    maxifference=(9*60)-morning
-
-    end=n + difference
-    maxend=n + maxifference
-    print(minToHour(end))
-    print(minToHour(maxend),"Max!")
-    que= input("ERGH")
-    if que.lower()=="y":
-        running=False
-
-
-
-
-print("I commited changes to the federal law of switzerland")
-print("Hello world")
-print("this should be a branceh")
+print(minwork_h, maxwork_h)
