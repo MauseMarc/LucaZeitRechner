@@ -68,17 +68,6 @@ def input_time():
 #     print(minToHour(maxend),"Max!")
 
 
-<<<<<<< Updated upstream
-print("I commited changes to the federal law of switzerland")
-print("Hello world")
-=======
-<<<<<<< Updated upstream
-
-
-print("I commited changes to the federal law of switzerland")
-print("Hello world")
-print("this should be a branceh")
-=======
 def validate_time(time):
     time_format = "%H:%M"
     try:
@@ -111,5 +100,3 @@ print(calc_time_delta((float(m_hour) - float(s_hour)), (float(m_min) - float(s_m
 
 # print("I commited changes to the federal law of switzerland")
 # print("Hello world")
->>>>>>> Stashed changes
->>>>>>> Stashed changes
