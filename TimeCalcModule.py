@@ -1,11 +1,11 @@
-def validateTime(time):
+def validateTime(myTime):
     valTime=[]
-    if ":" in time or "," in time or "." in time:
-        time=time.replace(" ",":").replace(",",":").replace(".",":")
-        valTime=time.split(":")
-    elif len(time) == 3 or len(time) == 4:
-            valTime.append(time[:-2])
-            valTime.append(time[-2:])
+    if ":" in myTime or "," in myTime or "." in myTime:
+        myTime=myTime.replace(" ",":").replace(",",":").replace(".",":")
+        valTime=myTime.split(":")
+    elif len(myTime) == 3 or len(myTime) == 4:
+            valTime.append(myTime[:-2])
+            valTime.append(myTime[-2:])
     else:
         return False
 
@@ -22,4 +22,12 @@ def validateTime(time):
     return valTime,minuteTime
 
 
-print(validateTime("1758"))
+def convertMinutes(totalMinutes):
+    overspill = totalMinutes % 60
+    hour = (minutes - overspill) / 60
+    return int(hour),overspill
+
+time,minutes= validateTime("1758")
+print(time,minutes)
+x , y = convertMinutes(minutes)
+print(x,y)
