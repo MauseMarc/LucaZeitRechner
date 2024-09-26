@@ -19,7 +19,7 @@ def validateTime(time):
     if valTime[1] >59:
         return False
     minuteTime=valTime[0]*60+valTime[1]
-    return valTime,minuteTime
+    return minuteTime
 
 
 def convertMinutes(totalMinutes):
