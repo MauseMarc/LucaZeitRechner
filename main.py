@@ -52,9 +52,11 @@ class App:
             self.lbl1.configure(text=f"Minimale Zeit: {min_time}")
             self.lbl2.configure(text=f"Maximale Zeit: {max_time}")
 
-
-if __name__ == "__main__":
+def main():
     root = tk.Tk()
     app = App(root)
     root.geometry("300x400")
     root.mainloop()
+
+if __name__ == "__main__":
+    main()
