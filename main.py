@@ -1,8 +1,45 @@
-from TimeCalcModule import *
-from WorkTimeCalc import *
 import tkinter as tk
 from tkinter import messagebox
-import datetime
+
+def minMax(morning, mid, midend):
+        check = [morning, mid, midend]
+        for test in check:
+            if not validateTime(test):
+                return False
+        morningTime = validateTime(mid) - validateTime(morning)
+        workTimes=[492,540]
+        dayFinish=[]
+        for minmax in workTimes:
+            workHours = minmax - morningTime
+            workHours += validateTime(midend)
+            workHours = convertMinutes(workHours)
+            dayFinish.append(workHours)
+        return dayFinish
+
+def validateTime(time):
+    valTime=[]
+    if ":" in time or "," in time or "." in time:
+        time=time.replace(" ",":").replace(",",":").replace(".",":")
+        valTime=time.split(":")
+    elif len(time) == 3 or len(time) == 4:
+            valTime.append(time[:-2])
+            valTime.append(time[-2:])
+    else:
+        return False
+    if valTime[0].isdigit() and valTime[1].isdigit():
+        valTime[0]=int(valTime[0])
+        valTime[1]=int(valTime[1])
+    else:
+        return False
+    if valTime[0] >23 or valTime[1] >59:
+        return False
+    minuteTime=valTime[0]*60+valTime[1]
+    return minuteTime
+
+def convertMinutes(totalMinutes):
+    overspill = totalMinutes % 60
+    hour = (totalMinutes - overspill) / 60
+    return int(hour),overspill
 
 class App:
     def __init__(self, root):
