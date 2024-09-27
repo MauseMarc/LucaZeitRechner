@@ -1,6 +1,8 @@
 from TimeCalcModule import *
 from WorkTimeCalc import *
 import tkinter as tk
+from tkinter import messagebox
+import datetime
 
 class App:
     def __init__(self, root):
@@ -28,15 +30,28 @@ class App:
         self.button = tk.Button(root, text="print", command=self.calc_time)
         self.button.pack(pady=10)
 
-        self.lbl = tk.Label(text="")
-        self.lbl.pack(pady=10)
+        self.lbl1 = tk.Label(text="")
+        self.lbl1.pack(pady=10)
+
+        self.lbl2 = tk.Label(text="")
+        self.lbl2.pack(pady=10)
 
     def calc_time(self):
         start_time = self.starttime.get(1.0, "end-1c")
         mittag_start = self.mittag_start.get(1.0, "end-1c")
         mittag_end = self.mittag_end.get(1.0, "end-1c")
         min_max_time = minMax(start_time, mittag_start, mittag_end)
-        min_time = 
+        if not min_max_time:
+            messagebox.showinfo(title="Fehler", message="Zeiteingabe ungültig")
+        else:
+            min_time_t = min_max_time[0]
+            max_time_t = min_max_time[1]
+            min_time = f"{min_time_t[0]:02}:{min_time_t[1]:02}"
+            max_time = f"{max_time_t[0]:02}:{max_time_t[1]:02}"
+
+            self.lbl1.configure(text=f"Minimale Zeit: {min_time}")
+            self.lbl2.configure(text=f"Maximale Zeit: {max_time}")
+
 
 if __name__ == "__main__":
     root = tk.Tk()
