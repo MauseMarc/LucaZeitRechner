@@ -42,7 +42,7 @@ class App:
         mittag_end = self.mittag_end.get(1.0, "end-1c")
         min_max_time = minMax(start_time, mittag_start, mittag_end)
         if not min_max_time:
-            messagebox.showinfo(title="Fehler", text="Zeiteingabe ungültig")
+            messagebox.showinfo(title="Fehler", message="Zeiteingabe ungültig")
         else:
             min_time_t = min_max_time[0]
             max_time_t = min_max_time[1]
