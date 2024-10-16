@@ -93,9 +93,6 @@ class App:
             if self.notification == 1:    
                 messagebox.showinfo("8:12 erreicht!")
     
-
-
-
 def main():
     root = tk.Tk()
     app = App(root)
