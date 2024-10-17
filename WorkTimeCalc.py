@@ -22,9 +22,6 @@ def time_until_end(end):
     now_min = validateTime(now)
     end_min = validateTime(end)
     timediff_min = end_min - now_min
-    waitTime= timediff_min*60-seconds
-    leftoverSeconds= waitTime%60
-    minutes=int((waitTime-leftoverSeconds)/60)
-    yeeees= convertMinutes(minutes)
-    totalt_time= f"{yeeees[0]:02}:{yeeees[1]:02}:{leftoverSeconds:02}"
-    return totalt_time, waitTime
+    yeeees= convertMinutes(timediff_min)
+    totalt_time= f"{yeeees[0]:02}:{yeeees[1]:02}"
+    return totalt_time, timediff_min

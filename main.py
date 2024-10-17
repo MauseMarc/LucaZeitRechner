@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 from WorkTimeCalc import *
-import time
 from tkinter import messagebox
+
 class App:
     def __init__(self, root):
         self.root = root
@@ -26,9 +26,9 @@ class App:
         self.mittag_end = tk.Entry()
         self.mittag_end.pack(pady=1)
 
-        self.button = tk.Button(root, text="print", command=lambda:[self.calc_time()])
+        self.button = tk.Button(root, text="print", command=self.calc_time)
         self.button.pack(pady=10)
-        
+
         self.notification = tk.IntVar()
         self.notification_switch = tk.Checkbutton(root, text="Benachrichtigung beim Erreichen der Zeit", variable=self.notification, onvalue=1, offvalue=0, command= self.update_notification_status)
         self.notification_switch.pack(pady=5)
@@ -42,13 +42,13 @@ class App:
         self.lbl3 = tk.Label(text="Benachrichtigung aus")
         self.lbl3.pack(pady=5)
 
-        self.lbl4 =tk.Label(text="")
+        self.lbl4 =tk.Label(text="Timer off")
         self.lbl4.pack(pady=5)
 
         self.min_time = 0
         self.max_time = 0
         self.wait_time = 0
-        # self.popup_v = 0
+        self.wait_time = -1
 
     def calc_time(self):
         start_time = self.starttime.get()
@@ -68,9 +68,7 @@ class App:
             self.min_time = min_time
             self.max_time = max_time
             self.display_time_until_end()
-            # self.popup_v = 1
-            # self.popup()
-
+            
     def update_notification_status(self):
         if self.notification.get() == 0:
             self.lbl3.config(text="Benachrichtigung aus")
@@ -83,22 +81,37 @@ class App:
         until_end, wait_time = time_until_end(self.min_time)
         self.lbl4.config(text=until_end)
         self.wait_time = wait_time
+        self.stopTimer()
+        if self.notification.get() == 1:
+            self.timerActive = True
+            self.popup()
     
     def popup(self):
-        wait_time = self.wait_time
-        if wait_time < 1:
-            return
+        if self.timerActive:
+            if self.wait_time <= 0:
+                self.lbl4.config(text="done")
+                messagebox.showinfo(message="8:12 Erreicht!")
+                self.stopTimer()
+            else:
+                self.wait_time -= 1
+                self.wait_t = convertMinutes(self.wait_time)
+                self.wait_hr = self.wait_t[0]
+                self.wait_min = self.wait_t[1]
+                self.lbl4.config(text=f"{self.wait_t[0]:02}:{self.wait_t[1]:02} Minuten übrig")
+                self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
         else:
-            print("slep")
-            time.sleep(wait_time)
-            if self.notification == 1:    
-                messagebox.showinfo("8:12 erreicht!")
+            return
+    
+    def stopTimer(self):
+        self.timerActive = False
+        self.lbl4.config(text="Timer off")
     
 def main():
+
     root = tk.Tk()
     app = App(root)
     root.geometry("300x500")
     root.mainloop()
-
+    
 if __name__ == "__main__":
     main()
