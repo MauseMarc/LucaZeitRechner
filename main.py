@@ -48,7 +48,7 @@ class App:
         self.min_time = 0
         self.max_time = 0
         self.wait_time = 0
-        self.popup_v = 0
+        # self.popup_v = 0
 
     def calc_time(self):
         start_time = self.starttime.get()
@@ -68,7 +68,8 @@ class App:
             self.min_time = min_time
             self.max_time = max_time
             self.display_time_until_end()
-            self.popup_v = 1
+            # self.popup_v = 1
+            # self.popup()
 
     def update_notification_status(self):
         if self.notification.get() == 0:
