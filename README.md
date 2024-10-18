@@ -3,7 +3,7 @@
 Arbeitszeitrechner.py
 Arbeitszeitrechner.exe
 Sind die Hauptfiles die gebraucht werden. Entweder oder. 
-Der rest ist erm aus gründen nicht entfernt. 
+Der rest ist aus gründen nicht entfernt. 
 
 ### Exe Datei ausführen !!
 Die Arbeitszeitrechner.exe Datei wird Windows nicht ausführen.
