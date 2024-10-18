@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from WorkTimeCalc import *
-from tkinter import messagebox
+from tkinter import *
 
 class App:
     def __init__(self, root):
@@ -111,7 +111,6 @@ def displayPopup(self, message):
     popupWindow.title("Benachrichtigung")
     popupWindow.geometry("290x90")
     popupWindow.wm_attributes("-topmost", 1)
-    # popupWindow.eval('tk::PlaceWindow . center')
     label = tk.Label(popupWindow, text=message)
     label.pack()
     okButton = tk.Button(popupWindow, text="OK", command=popupWindow.destroy)
