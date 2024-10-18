@@ -1,4 +1,10 @@
-# Luca Code
+# LucaApprovedCode
+WICHTIG:
+Arbeitszeitrechner.py
+Arbeitszeitrechner.exe
+Sind die Hauptfiles die gebraucht werden. Entweder oder. 
+Der rest ist erm aus gründen nicht entfernt. 
+
 Arbeitszeit Calculator
 Input Ankunftzeit, Mittagspause start und Mittagspause ende
 
