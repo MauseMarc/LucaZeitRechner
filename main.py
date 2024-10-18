@@ -90,7 +90,7 @@ class App:
         if self.timerActive:
             if self.wait_time <= 0:
                 self.lbl4.config(text="done")
-                messagebox.showinfo(message="8:12 Erreicht!")
+                displayPopup(self, message="8:12 Erreicht!")
                 self.stopTimer()
             else:
                 self.wait_time -= 1
@@ -105,6 +105,18 @@ class App:
     def stopTimer(self):
         self.timerActive = False
         self.lbl4.config(text="Timer off")
+
+def displayPopup(self, message):
+    popupWindow = tk.Toplevel(self.root)
+    popupWindow.title("Benachrichtigung")
+    popupWindow.geometry("60x60")
+    popupWindow.wm_attributes("-topmost", 1)
+    # popupWindow.eval('tk::PlaceWindow . center')
+    label = tk.Label(popupWindow, text=message)
+    label.pack()
+    okButton = tk.Button(popupWindow, text="OK", command=popupWindow.destroy)
+    okButton.pack(pady=10)
+    popupWindow.grab_set()
     
 def main():
 
