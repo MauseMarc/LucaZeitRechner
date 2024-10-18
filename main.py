@@ -98,7 +98,7 @@ class App:
                 self.wait_hr = self.wait_t[0]
                 self.wait_min = self.wait_t[1]
                 self.lbl4.config(text=f"{self.wait_t[0]:02}:{self.wait_t[1]:02} Minuten übrig")
-                self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
+                self.root.after(60, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
         else:
             return
     
@@ -109,7 +109,7 @@ class App:
 def displayPopup(self, message):
     popupWindow = tk.Toplevel(self.root)
     popupWindow.title("Benachrichtigung")
-    popupWindow.geometry("60x60")
+    popupWindow.geometry("290x90")
     popupWindow.wm_attributes("-topmost", 1)
     # popupWindow.eval('tk::PlaceWindow . center')
     label = tk.Label(popupWindow, text=message)
