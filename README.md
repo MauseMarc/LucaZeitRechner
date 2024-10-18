@@ -1,4 +1,4 @@
-# LucaApprovedCode
+# Censored by Luca
 ### WICHTIG:
 Arbeitszeitrechner.py
 Arbeitszeitrechner.exe
