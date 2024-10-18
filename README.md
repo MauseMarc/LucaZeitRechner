@@ -1,15 +1,15 @@
 # LucaApprovedCode
-WICHTIG:
+### WICHTIG:
 Arbeitszeitrechner.py
 Arbeitszeitrechner.exe
 Sind die Hauptfiles die gebraucht werden. Entweder oder. 
 Der rest ist erm aus gründen nicht entfernt. 
 
-### Exe Datei erlauben
+### Exe Datei ausführen !!
 Die Arbeitszeitrechner.exe Datei wird Windows nicht ausführen.
 In den Eigenschaften kann ganz unten eingestellt werden dass der PC dieses Programm ausführen darf.
 
-Arbeitszeit Calculator
+### Arbeitszeit Calculator
 Input Ankunftzeit, Mittagspause start und Mittagspause ende
 
 Rechnet aus ab wann man 8 Stunden und 12 Minuten gearbeitet hat.
