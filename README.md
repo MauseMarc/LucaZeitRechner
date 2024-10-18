@@ -5,6 +5,10 @@ Arbeitszeitrechner.exe
 Sind die Hauptfiles die gebraucht werden. Entweder oder. 
 Der rest ist erm aus gründen nicht entfernt. 
 
+### Exe Datei erlauben
+Die Arbeitszeitrechner.exe Datei wird Windows nicht ausführen.
+In den Eigenschaften kann ganz unten eingestellt werden dass der PC dieses Programm ausführen darf.
+
 Arbeitszeit Calculator
 Input Ankunftzeit, Mittagspause start und Mittagspause ende
 
