@@ -7,7 +7,8 @@ Der rest ist aus gründen nicht entfernt.
 
 ### Exe Datei ausführen !!
 Die Arbeitszeitrechner.exe Datei wird Windows nicht ausführen.
-In den Eigenschaften kann ganz unten eingestellt werden dass der PC dieses Programm ausführen darf.
+Exe File entpacken. 
+In den Eigenschaften kann dann ganz unten eingestellt werden dass der PC dieses Programm ausführen darf.
 
 ### Arbeitszeit Calculator
 Input Ankunftzeit, Mittagspause start und Mittagspause ende
