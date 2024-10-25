@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import messagebox
 from WorkTimeCalc import *
-from tkinter import *
+from customtkinter import *
 
 class App:
     def __init__(self, root):
