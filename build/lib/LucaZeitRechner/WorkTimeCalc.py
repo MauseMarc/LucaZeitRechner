@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from TimeCalcModule import *
-=======
 from LucaZeitRechner.TimeCalcModule import *
->>>>>>> de7cdc317fbad2850d5a54d115ef8425d61d2ca3
 import datetime
 
 def minMax(morning, mid, midend):

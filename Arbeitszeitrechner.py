@@ -1,7 +1,12 @@
 import datetime
 import customtkinter as ctk
+<<<<<<< HEAD:LucaZeitRechner/Arbeitszeitrechner.py
 from customtkinter import messagebox
 from customtkinter import *
+=======
+from tkinter import messagebox
+from tkinter import *
+>>>>>>> de7cdc317fbad2850d5a54d115ef8425d61d2ca3:Arbeitszeitrechner.py
 
 def validateTime(time):
     valTime=[]

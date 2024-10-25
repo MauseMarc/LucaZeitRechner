@@ -1,11 +1,57 @@
+import datetime
 import customtkinter as ctk
 from tkinter import messagebox
-<<<<<<< HEAD
-from WorkTimeCalc import *
-=======
-from LucaZeitRechner.WorkTimeCalc import *
->>>>>>> de7cdc317fbad2850d5a54d115ef8425d61d2ca3
-from customtkinter import *
+from tkinter import *
+
+def validateTime(time):
+    valTime=[]
+    if ":" in time or "," in time or "." in time:
+        time=time.replace(" ",":").replace(",",":").replace(".",":")
+        valTime=time.split(":")
+    elif len(time) == 3 or len(time) == 4:
+            valTime.append(time[:-2])
+            valTime.append(time[-2:])
+    else:
+        return False
+    if valTime[0].isdigit() and valTime[1].isdigit():
+        valTime[0]=int(valTime[0])
+        valTime[1]=int(valTime[1])
+    else:
+        return False
+    if valTime[0] >23 or valTime[1] >59:
+        return False
+    minuteTime=valTime[0]*60+valTime[1]
+    return minuteTime
+
+def convertMinutes(totalMinutes):
+    overspill = totalMinutes % 60
+    hour = (totalMinutes - overspill) / 60
+    return int(hour),overspill
+
+def minMax(morning, mid, midend):
+        check = [morning, mid, midend]
+        for test in check:
+            if not validateTime(test):
+                return False
+        morningTime = validateTime(mid) - validateTime(morning)
+        workTimes=[492,540]
+        dayFinish=[]
+        for minmax in workTimes:
+            workHours = minmax - morningTime
+            workHours += validateTime(midend)
+            workHours = convertMinutes(workHours)
+            dayFinish.append(workHours)
+        return dayFinish
+
+def time_until_end(end):
+    now = datetime.datetime.strftime(datetime.datetime.now(), "%H:%M")
+    seconds = int(datetime.datetime.strftime(datetime.datetime.now(), "%S"))
+    now_min = validateTime(now)
+    end_min = validateTime(end)
+    timediff_min = end_min - now_min
+    yeeees= convertMinutes(timediff_min)
+    totalt_time= f"{yeeees[0]:02}:{yeeees[1]:02}"
+    return totalt_time, timediff_min
 
 class App:
     def __init__(self, root):
@@ -54,17 +100,12 @@ class App:
 
         self.min_time = 0
         self.max_time = 0
-        self.AFTER = None
+        self.wait_time = 0
+        self.wait_time = -1
         # self.workHours = 0
         # self.workMins = validateTime(self.workHours)
 
     def calc_time(self):
-
-        if self.AFTER:
-            print("cancel")
-            self.root.after_cancel(self.AFTER)
-            
-        self.timerActive = False
         start_time = self.starttime.get()
         mittag_start = self.mittag_start.get()
         mittag_end = self.mittag_end.get()
@@ -112,7 +153,7 @@ class App:
                 self.wait_hr = self.wait_t[0]
                 self.wait_min = self.wait_t[1]
                 self.lbl4.configure(text=f"{self.wait_t[0]:02}:{self.wait_t[1]:02} Minuten übrig")
-                self.AFTER = self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
+                self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
         else:
             return
     
@@ -139,3 +180,4 @@ def main():
     
 if __name__ == "__main__":
     main()
+
