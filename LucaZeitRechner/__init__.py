@@ -1,4 +1,4 @@
 # __init__.py
-from .main import *
+from LucaZeitRechner.main import *
 from .TimeCalcModule import *
 from .WorkTimeCalc import *

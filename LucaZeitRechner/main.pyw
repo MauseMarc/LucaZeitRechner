@@ -73,6 +73,7 @@ class App:
             self.min_time = min_time
             self.max_time = max_time
             self.display_time_until_end()
+            self.root.after(1800000, self.calc_time)
             
     def update_notification_status(self):
         if self.notification.get() == 0:

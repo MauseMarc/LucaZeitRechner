@@ -1,7 +1,7 @@
 import datetime
 import customtkinter as ctk
-from customtkinter import messagebox
-from customtkinter import *
+from tkinter import messagebox
+from tkinter import *
 
 def validateTime(time):
     valTime=[]
@@ -52,7 +52,6 @@ def time_until_end(end):
     yeeees= convertMinutes(timediff_min)
     totalt_time= f"{yeeees[0]:02}:{yeeees[1]:02}"
     return totalt_time, timediff_min
-
 
 class App:
     def __init__(self, root):
@@ -181,5 +180,4 @@ def main():
     
 if __name__ == "__main__":
     main()
-
 
