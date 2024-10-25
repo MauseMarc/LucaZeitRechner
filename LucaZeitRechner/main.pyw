@@ -56,6 +56,10 @@ class App:
         # self.workMins = validateTime(self.workHours)
 
     def calc_time(self):
+        if hasattr(self, 'popup_job'):
+            self.root.after_cancel(self.popup_job)
+            
+        self.timerActive = False
         start_time = self.starttime.get()
         mittag_start = self.mittag_start.get()
         mittag_end = self.mittag_end.get()
@@ -73,7 +77,6 @@ class App:
             self.min_time = min_time
             self.max_time = max_time
             self.display_time_until_end()
-            self.root.after(1800000, self.calc_time)
             
     def update_notification_status(self):
         if self.notification.get() == 0:
@@ -104,7 +107,7 @@ class App:
                 self.wait_hr = self.wait_t[0]
                 self.wait_min = self.wait_t[1]
                 self.lbl4.configure(text=f"{self.wait_t[0]:02}:{self.wait_t[1]:02} Minuten übrig")
-                self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
+                self.popup_job = self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
         else:
             return
     
