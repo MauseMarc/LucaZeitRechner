@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from .WorkTimeCalc import *
+from LucaZeitRechner.WorkTimeCalc import *
 from customtkinter import *
 
 class App:
@@ -50,12 +50,17 @@ class App:
 
         self.min_time = 0
         self.max_time = 0
-        self.wait_time = 0
-        self.wait_time = -1
+        self.AFTER = None
         # self.workHours = 0
         # self.workMins = validateTime(self.workHours)
 
     def calc_time(self):
+
+        if self.AFTER:
+            print("cancel")
+            self.root.after_cancel(self.AFTER)
+            
+        self.timerActive = False
         start_time = self.starttime.get()
         mittag_start = self.mittag_start.get()
         mittag_end = self.mittag_end.get()
@@ -103,7 +108,7 @@ class App:
                 self.wait_hr = self.wait_t[0]
                 self.wait_min = self.wait_t[1]
                 self.lbl4.configure(text=f"{self.wait_t[0]:02}:{self.wait_t[1]:02} Minuten übrig")
-                self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
+                self.AFTER = self.root.after(60000, self.popup) #nach 60 sekunden funktion erneut ausführen (kein time.sleep)
         else:
             return
     

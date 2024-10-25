@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Arbeitszeitrechner',
-    version='0.6',
+    version='1.0',
     description='Arbeitszeitrechner',
     author='Julian Egger, Marc Liesch',
     author_email='julian.elias.egger@outlook.com',

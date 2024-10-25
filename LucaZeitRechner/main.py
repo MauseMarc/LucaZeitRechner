@@ -57,6 +57,7 @@ class App:
     def calc_time(self):
 
         if self.AFTER:
+            print("cancel")
             self.root.after_cancel(self.AFTER)
             
         self.timerActive = False
