@@ -1,6 +1,6 @@
 import customtkinter as ctk
 from tkinter import messagebox
-from .WorkTimeCalc import *
+from LucaZeitRechner.WorkTimeCalc import *
 from customtkinter import *
 
 class App:
